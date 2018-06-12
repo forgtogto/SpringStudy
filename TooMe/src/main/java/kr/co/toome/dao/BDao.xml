@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.toome.dao.BDao">
+	<select id="listDao" resultType="kr.co.toome.dto.BDto">
+		SELECT * FROM mvc_board ORDER BY bgroup DESC, bstep ASC
+	</select>
+
+	<insert id="writeDao">
+		INSERT INTO mvc_board ( bname, btitle, bcontent, bhit, bgroup, bstep, bindent) VALUES (  #{param1}, #{param2}, #{param3}, 0, 0, 0, 0 )
+	</insert>	
+ 
+ 	<select id="contentViewDao" resultType="kr.co.toome.dto.BDto">
+ 		SELECT * FROM mvc_board WHERE bid = #{param1}
+ 	</select>
+ 	 
+ 	<update id="upHitDao" >
+ 		UPDATE mvc_board SET BHIT = BHIT + 1 WHERE BID = #{param1}
+ 	</update>
+ 	
+ 	<update id="modifyDao" >
+ 		UPDATE mvc_board SET bname = #{param1}, btitle = #{param2}, bcontent = #{param3} WHERE bid = #{param4}
+ 	</update>
+ 	
+ 	<select id="replyViewDao" resultType="kr.co.toome.dto.BDto">
+		SELECT * FROM mvc_board WHERE BID = #{param1}
+	</select>
+ 
+	<insert id="replyDao">
+		INSERT INTO mvc_board (bname, btitle, bcontent, bhit, bgroup, bstep, bindent) VALUES (#{param1}, #{param2}, #{param3}, 0, #{param4}, #{param5} + 1, #{param6} + 1)
+	</insert>	
+	
+	 <update id="replyShapeDao" >
+ 		UPDATE mvc_board SET bstep = bstep + 1 WHERE bgroup = #{param1} AND bstep > #{param2}
+ 	</update>
+	
+	<delete id="deleteDao">
+		DELETE FROM mvc_board WHERE bid = #{param1}
+	</delete>
+	
+	
+</mapper>

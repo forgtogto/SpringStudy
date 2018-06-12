@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.toome.dao.QDao">
+	<select id="testviewDao" resultType="kr.co.toome.dto.QDto">
+		SELECT * FROM papertest ORDER BY test_date DESC
+	</select>
+	
+	
+	<insert id="createTestDao">
+		INSERT INTO papertest ( test_title, test_ex1, test_ex2, test_ex3, test_ex4 ) VALUES ( #{param1}, #{param2}, #{param3}, #{param4}, #{param5} )
+	</insert>
+	
+	
+	<delete id="deleteTestDao">
+		DELETE FROM papertest WHERE test_no = #{param1}
+	</delete>
+	
+	<select id="readModifyDao" resultType="kr.co.toome.dto.QDto">
+		SELECT * FROM papertest WHERE test_no = #{param1}
+	</select>
+		
+	
+	 <update id="modifyTestDao" >
+ 		UPDATE papertest SET test_title = #{param1}, test_ex1 = #{param2}, test_ex2 = #{param3}, test_ex3 = #{param4}, test_ex4 = #{param5} WHERE test_no = #{param6}
+ 	</update>
+ 	
+ 	
+ 	<select id="paperDao" resultType="kr.co.toome.dto.QDto">
+		SELECT * FROM papertest WHERE test_no = #{param1}
+	</select>
+ 
+	
+	<select id="paperrandomDao" resultType="java.lang.String">
+		SELECT test_no FROM papertest ORDER BY RAND() LIMIT 1
+	</select>
+ 
+ 
+	<select id="getNumDao" resultType="java.lang.String">
+		SELECT test_no FROM papertest limit 5
+	</select>
+ 
+ 
+	<select id="getex1Dao" resultType="java.lang.String">
+		SELECT  test_ex1 FROM papertest  WHERE test_no = #{param1}
+	</select>
+	
+	
+	<select id="getex2Dao" resultType="java.lang.String">
+		SELECT  test_ex2 FROM papertest  WHERE test_no = #{param1}
+	</select>
+	
+	
+	<select id="getex3Dao" resultType="java.lang.String">
+		SELECT  test_ex3 FROM papertest  WHERE test_no = #{param1}
+	</select>
+	
+	
+	<select id="getex4Dao" resultType="java.lang.String">
+		SELECT  test_ex4 FROM papertest  WHERE test_no = #{param1}
+	</select>
+ 
+ 
+	
+</mapper>
+
+
+<!-- 
+문구 통일하자
+
+문제 작성: createTest
+시험지 작성 : createPaper
+전체 문제 리스트 : listTestAll
+
+디비 정보 
+table name = papertest
+test_no 		int(11) AI PK 
+test_title 		varchar(500) 
+test_ex1 		varchar(500) 
+test_ex2 		varchar(500) 
+test_ex3 		varchar(500) 
+test_ex4 		varchar(500) 
+test_answer 	varchar(500) 
+test_date 		timestamp
+
+ -->

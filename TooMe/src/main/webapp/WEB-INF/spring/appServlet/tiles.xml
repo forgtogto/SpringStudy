@@ -1,0 +1,43 @@
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+ 
+<tiles-definitions>
+ 
+    <!-- 화면의 기초가 되는 base -->
+    <definition name="base" template="/WEB-INF/views/layout/template.jsp">
+    	<put-attribute name="title" value="/WEB-INF/views/layout/title.jsp" />
+        <put-attribute name="nav"   value="" />
+        <put-attribute name="header" value="/WEB-INF/views/layout/header.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+    </definition>
+ 
+    
+    <!-- 동적 매핑  -->
+         <definition name="*" extends="base">
+         <put-attribute name="body" value="/WEB-INF/views/{1}.jsp" />
+     </definition>
+     
+ 
+     <definition name="*/*" extends="base">
+         <put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" />
+     </definition>
+    
+    <definition name="*/*/*" extends="base">
+        <put-attribute name="body" value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
+    </definition>
+
+
+	<definition name="empty" template="/WEB-INF/views/layout/loginLayout.jsp">
+        <put-attribute name="content" value=""/>  
+    </definition>
+
+	<definition name="empty/*" extends="empty">
+          <put-attribute name="content" value="/WEB-INF/security/loginForm.jsp"/>
+    </definition>
+
+ 
+ 
+    
+    
+</tiles-definitions>

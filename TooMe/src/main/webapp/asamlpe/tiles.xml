@@ -1,0 +1,48 @@
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+ 
+<tiles-definitions>
+ 
+    <!-- 화면의 기초가 되는 base -->
+    <definition name="base" template="/WEB-INF/views/layout/template.jsp">
+    	<put-attribute name="title" value="/WEB-INF/views/layout/title.jsp" />
+        <put-attribute name="nav"   value="" />
+        <put-attribute name="header" value="/WEB-INF/views/layout/header.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/views/layout/footer.jsp" />
+    </definition>
+ 
+    
+    <!-- 동적 매핑.
+         만약 /user/login의 경로라면 /WEB-INF/views/user/login.jsp 뷰를 가져온다. -->
+
+    <definition name="*" extends="base">
+        <put-attribute name="body" value="/WEB-INF/views/{1}.jsp" />
+    </definition>
+ 
+     <definition name="*/*" extends="base">
+         <put-attribute name="boy" value="/WEB-INF/views/{1}/{2}.jsp" />
+     </definition>
+    
+    <definition name="*/*/*" extends="base">
+        <put-attribute name="body" value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
+    </definition>
+
+	<!-- 시큐리티 로그인 전용 -->
+	<definition name="nobase" template="/WEB-INF/views/layout/loginLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="" />
+		<put-attribute name="menu" value="" />
+		<put-attribute name="footer" value="" />
+	</definition> 
+
+	<!-- 시큐리티 로그인 전용 매핑  -->
+    <definition name="*" extends="nobase">
+        <put-attribute name="login" value="/WEB-INF/views/security/{1}.jsp" />
+    </definition>
+
+ 
+ 
+    
+    
+</tiles-definitions>
