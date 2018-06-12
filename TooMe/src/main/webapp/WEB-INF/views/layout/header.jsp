@@ -14,10 +14,10 @@
 	</button>
 	<div class="collapse navbar-collapse" id="navbarResponsive">
 		<ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-			<li class="nav-item" data-toggle="tooltip" data-placement="right"
+			<%-- <li class="nav-item" data-toggle="tooltip" data-placement="right"
 				title="Dashboard"><a class="nav-link" href="blank.html"> <i
 					class="fa fa-fw fa-dashboard"></i> <span class="nav-link-text">Dashboard</span>
-			</a></li>
+			</a></li> --%>
 			<li class="nav-item " data-toggle="tooltip" data-placement="right"
 				title="Charts"><a class="nav-link" href="mybatis_list.jk"> <i
 					class="fa fa-fw fa-area-chart"></i> <span class="nav-link-text">MBoard</span>
@@ -41,7 +41,7 @@
 					<li><a href="paper_view.jk">문제 풀기</a></li>
 					<li><a href="#">정답 확인</a></li>
 				</ul></li>
-			<li class="nav-item" data-toggle="tooltip" data-placement="right"
+<%-- 			<li class="nav-item" data-toggle="tooltip" data-placement="right"
 				title="Tables"><a class="nav-link" href="tables.html"> <i
 					class="fa fa-fw fa-table"></i> <span class="nav-link-text">Tables</span>
 			</a></li>
@@ -86,7 +86,7 @@
 							<li><a href="#">Third Level Item</a></li>
 							<li><a href="#">Third Level Item</a></li>
 						</ul></li>
-				</ul></li>
+				</ul></li> --%>
 		</ul>
 		<ul class="navbar-nav sidenav-toggler">
 			<li class="nav-item"><a class="nav-link text-center"
