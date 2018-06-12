@@ -1,9 +1,7 @@
 package kr.co.toome.dao;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
-import kr.co.toome.dto.IDto;
 import kr.co.toome.dto.QDto;
 
 public interface QDao {

@@ -14,6 +14,7 @@ public class RadomNum {
 	@Autowired
 	private SqlSession sqlSession;
 	
+	@SuppressWarnings("unused")
 	private String random() {
 		
 		QDao dao = sqlSession.getMapper(QDao.class);

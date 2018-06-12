@@ -3,8 +3,6 @@ package kr.co.toome.controller;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
-import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,9 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
- 
+
 import kr.co.toome.dao.QDao;
-import kr.co.toome.dto.QDto;
  
  
 @Controller
@@ -124,7 +121,7 @@ public class QController {
 	//결과페이지를 만들자
 	@RequestMapping(value="/testresult.jk", method=RequestMethod.POST)
 	public String testResult(HttpServletRequest request, Model model) {
-		QDao dao = sqlSession.getMapper(QDao.class);
+		 
 		String answer = request.getParameter("caUse");
 		String ex4 = request.getParameter("ex4");
 		
